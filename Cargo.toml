@@ -1,0 +1,15 @@
+[workspace]
+members = ["crates/*"]
+resolver = "3"
+
+[workspace.package]
+version = "0.1.0"
+categories = ["api-bindings"]
+keywords = ["discord", "wrapper", "api"]
+license = "Apache-2.0"
+repository = "https://github.com/cbrra/oxicord"
+description = "Rust crate to interact with the Discord API"
+edition = "2024"
+
+[workspace.dependencies]
+#mod = { path = "./crates/mod", version = "0.1.0" }
