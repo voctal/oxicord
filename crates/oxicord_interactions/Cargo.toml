@@ -1,0 +1,19 @@
+[package]
+name = "oxicord_interactions"
+version.workspace = true
+categories.workspace = true
+keywords.workspace = true
+license.workspace = true
+repository.workspace = true
+description.workspace = true
+edition.workspace = true
+
+[dependencies]
+oxicord_api_types.workspace = true
+
+ed25519-dalek = "3.0.0"
+http = "1.5.0"
+thiserror = "2.0.19"
+serde.workspace = true
+serde_json.workspace = true
+hex = "0.4.3"
