@@ -8,7 +8,4 @@ repository.workspace = true
 description.workspace = true
 edition.workspace = true
 
-[lib]
-name = "oxicord"
-
 [dependencies]
