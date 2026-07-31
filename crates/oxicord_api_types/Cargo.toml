@@ -13,3 +13,5 @@ oxicord_macros.workspace = true
 
 serde = { workspace = true, features = ["derive"] }
 serde_repr.workspace = true
+serde_json.workspace = true
+bitflags = { workspace = true, features = ["serde"] }
