@@ -1,10 +1,8 @@
-use oxicord_api_types::{
-    Snowflake,
-    v10::{
-        components::{ApiStringSelectComponent, ApiStringSelectOption, ComponentType},
-        emoji::ApiMessageComponentEmoji,
-    },
+use oxicord_api_types::v10::{
+    components::{ApiStringSelectComponent, ApiStringSelectOption, ComponentType},
+    emoji::ApiMessageComponentEmoji,
 };
+use oxicord_snowflake::EmojiId;
 
 /// Builder for string select menus.
 #[derive(Debug)]
@@ -157,7 +155,7 @@ impl StringSelectOptionBuilder {
     }
 
     /// Sets the `emoji` as a custom emoji.
-    pub fn custom_emoji(mut self, id: Snowflake) -> Self {
+    pub fn custom_emoji(mut self, id: EmojiId) -> Self {
         self.emoji = Some(ApiMessageComponentEmoji {
             id: Some(id),
             name: None,

@@ -10,6 +10,7 @@ edition.workspace = true
 
 [dependencies]
 oxicord_macros.workspace = true
+oxicord_snowflake.workspace = true
 
 serde = { workspace = true, features = ["derive"] }
 serde_repr.workspace = true

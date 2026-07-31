@@ -1,14 +1,13 @@
 use oxicord_macros::{discord_enum, discord_type};
+use oxicord_snowflake::UserId;
 use serde::{Deserialize, Serialize};
-
-use crate::Snowflake;
 
 /// A Discord user.
 ///
 /// <https://discord.com/developers/docs/resources/user#user-object>
 #[discord_type]
 pub struct ApiUser {
-    pub id: Snowflake,
+    pub id: UserId,
     pub username: String,
     pub discriminator: String,
     pub global_name: Option<String>,

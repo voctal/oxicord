@@ -1,10 +1,8 @@
-use oxicord_api_types::{
-    Snowflake,
-    v10::{
-        components::{ApiButtonComponent, ButtonStyle, ComponentType},
-        emoji::ApiMessageComponentEmoji,
-    },
+use oxicord_api_types::v10::{
+    components::{ApiButtonComponent, ButtonStyle, ComponentType},
+    emoji::ApiMessageComponentEmoji,
 };
+use oxicord_snowflake::{EmojiId, SkuId};
 
 /// Builder for buttons.
 #[derive(Debug)]
@@ -14,7 +12,7 @@ pub struct ButtonBuilder {
     label: Option<String>,
     emoji: Option<ApiMessageComponentEmoji>,
     custom_id: Option<String>,
-    sku_id: Option<Snowflake>,
+    sku_id: Option<SkuId>,
     url: Option<String>,
     disabled: bool,
 }
@@ -77,7 +75,7 @@ impl ButtonBuilder {
     }
 
     /// `style` helper.
-    pub fn premium(mut self, sku_id: impl Into<Snowflake>) -> Self {
+    pub fn premium(mut self, sku_id: impl Into<SkuId>) -> Self {
         self.style = ButtonStyle::Premium;
         self.sku_id = Some(sku_id.into());
         self
@@ -110,7 +108,7 @@ impl ButtonBuilder {
     }
 
     /// Sets the `emoji` as a custom emoji.
-    pub fn custom_emoji(mut self, id: Snowflake) -> Self {
+    pub fn custom_emoji(mut self, id: EmojiId) -> Self {
         self.emoji = Some(ApiMessageComponentEmoji {
             id: Some(id),
             name: None,
@@ -126,7 +124,7 @@ impl ButtonBuilder {
     }
 
     /// Sets the `sku_id`. (only for premium buttons).
-    pub fn sku_id(mut self, sku_id: impl Into<Snowflake>) -> Self {
+    pub fn sku_id(mut self, sku_id: impl Into<SkuId>) -> Self {
         self.sku_id = Some(sku_id.into());
         self
     }

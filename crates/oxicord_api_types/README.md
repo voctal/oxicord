@@ -13,6 +13,4 @@ Discord API types.
 
 ## TODO
 
-- Feature to only use `Snowflake`
 - Feature for each version (e.g. `v10`)
-- Feature for the regexes

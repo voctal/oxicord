@@ -10,3 +10,4 @@ edition.workspace = true
 
 [dependencies]
 oxicord_api_types.workspace = true
+oxicord_snowflake.workspace = true

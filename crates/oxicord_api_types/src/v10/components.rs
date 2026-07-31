@@ -1,6 +1,7 @@
 use oxicord_macros::{discord_enum, discord_type};
+use oxicord_snowflake::SkuId;
 
-use crate::{Snowflake, v10::emoji::ApiMessageComponentEmoji};
+use crate::v10::emoji::ApiMessageComponentEmoji;
 
 /// https://discord.com/developers/docs/components/reference#component-object-component-types
 #[discord_enum(u8)]
@@ -67,7 +68,7 @@ pub struct ApiButtonComponent {
     pub label: Option<String>,
     pub emoji: Option<ApiMessageComponentEmoji>,
     pub custom_id: Option<String>,
-    pub sku_id: Option<Snowflake>,
+    pub sku_id: Option<SkuId>,
     pub url: Option<String>,
     /// Whether the button is disabled.
     pub disabled: bool,

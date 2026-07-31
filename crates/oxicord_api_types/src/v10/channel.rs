@@ -1,6 +1,5 @@
 use oxicord_macros::{discord_enum, discord_type};
-
-use crate::Snowflake;
+use oxicord_snowflake::ChannelId;
 
 /// <https://discord.com/developers/docs/resources/channel#channel-object-channel-types>
 #[discord_enum(u8)]
@@ -36,7 +35,7 @@ pub enum ChannelType {
 #[discord_type]
 pub struct ApiPartialChannel {
     /// The id of the channel
-    pub id: Snowflake,
+    pub id: ChannelId,
     /// The type of the channel
     #[serde(rename = "type")]
     pub channel_type: ChannelType,

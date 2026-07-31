@@ -1,6 +1,5 @@
 use oxicord_macros::discord_type;
-
-use crate::Snowflake;
+use oxicord_snowflake::EmojiId;
 
 /// A partial emoji, used in some components.
 ///
@@ -9,7 +8,7 @@ use crate::Snowflake;
 #[discord_type]
 pub struct ApiMessageComponentEmoji {
     /// Emoji id
-    pub id: Option<Snowflake>,
+    pub id: Option<EmojiId>,
     /// Emoji name
     pub name: Option<String>,
     /// Whether this emoji is animated

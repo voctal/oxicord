@@ -1,9 +1,9 @@
 //! Gateway types.
 
 use super::user::ApiUser;
-use crate::Snowflake;
 
 use oxicord_macros::discord_type;
+use oxicord_snowflake::ApplicationId;
 use serde::{Deserialize, Serialize};
 
 /// The `d` payload of an `Identify` (opcode 2) gateway command.
@@ -58,7 +58,7 @@ pub struct GatewayReadyDispatchData {
 
 #[discord_type]
 pub struct GatewayReadyApplication {
-    pub id: Snowflake,
+    pub id: ApplicationId,
     #[serde(default)]
     pub flags: Option<u64>,
 }
