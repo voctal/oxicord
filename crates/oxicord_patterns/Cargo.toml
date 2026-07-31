@@ -1,0 +1,12 @@
+[package]
+name = "oxicord_patterns"
+version.workspace = true
+categories.workspace = true
+keywords.workspace = true
+license.workspace = true
+repository.workspace = true
+description.workspace = true
+edition.workspace = true
+
+[dependencies]
+regex = "1.13.1"
