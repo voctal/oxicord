@@ -27,6 +27,8 @@ The REST API v10+ and the gateway will be supported, but not the voice API (at l
 - `oxicord_core` - Core library (e.g. for HTTP-only bots)
 - `oxicord_rest` - REST http for the API
 - `oxicord_formatters` - Formatting utilities for messages
+- `oxicord_patterns` - Discord regexes
+- `oxicord_snowflake` - Snowflake implementation and utilities
 - `oxicord_structures` - Wrappers for Discord structures
 - `oxicord_utils` - Utilities for Oxicord
 - `oxicord_macros` - Macros for Oxicord

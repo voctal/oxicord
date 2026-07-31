@@ -11,6 +11,21 @@
 
 Builders for components and embeds.
 
+## Examples
+
+```rust
+use oxicord_builders::ButtonBuilder;
+
+let button = ButtonBuilder::new()
+    .primary()
+    .label("Hello")
+    .custom_id("hello-world")
+    .unicode_emoji("👍")
+    .disabled(true)
+    .build();
+
+```
+
 ## TODO
 
 - Embed

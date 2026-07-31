@@ -10,3 +10,16 @@
 ## About
 
 Formatters, helpers and escapers for Discord message formatting.
+
+## Examples
+
+```rust
+use oxicord_formatters::{bold, user_mention};
+
+println!("{}", bold("Welcome!"));
+println!("{}", user_mention(123456789012345678));
+
+// prints:
+// **Welcome!**
+// <@123456789012345678>
+```
