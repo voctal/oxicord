@@ -9,8 +9,10 @@
 
 ## About
 
-API types
+Discord API types.
 
-## Rules
+## TODO
 
-features snowflake & vX
+- Feature to only use `Snowflake`
+- Feature for each version (e.g. `v10`)
+- Feature for the regexes

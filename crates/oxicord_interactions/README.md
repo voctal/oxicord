@@ -11,7 +11,7 @@
 
 Helpers for HTTP interactions and webhooks, including the verification of Discord Ed25519 requests.
 
-## Development notes
+## TODO
 
 - `axum` feature with `axum.rs` for an Axum integration. Also `examples/axum.rs`
 - Tests
