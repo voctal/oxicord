@@ -10,3 +10,20 @@
 ## About
 
 Builders for components and embeds.
+
+## TODO
+
+- Embed
+- Section
+- Thumbnail
+- MediaGallery
+- File
+- Label
+- FileUpload
+- UserSelect
+- RoleSelect
+- MentionableSelect
+- ChannelSelect
+- RadioGroup
+- CheckboxGroup
+- Checkbox
