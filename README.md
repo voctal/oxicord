@@ -33,10 +33,12 @@ The REST API v10+ and the gateway will be supported, but not the voice API (at l
 - `oxicord_gateway` - Gateway implementation (WebSocket)
 - `oxicord_interactions` - HTTP interactions & webhooks
 
+Later:
+
 - `oxicord_collector` - Collectors
 - `oxicord_pagination` - Pagination helper
 - `oxicord_framework` - Complex framework around Oxicord
-- `oxicord_voice`
+- `oxicord_voice` - Voice player (opus/e2ee/ffmpeg)
 
 ## TODO
 
