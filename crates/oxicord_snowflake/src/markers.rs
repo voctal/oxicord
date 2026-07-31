@@ -1,0 +1,31 @@
+use crate::Id;
+
+pub struct ApplicationMarker;
+pub struct AttachmentMarker;
+pub struct ChannelMarker;
+pub struct EmojiMarker;
+pub struct GuildMarker;
+pub struct InteractionMarker;
+pub struct MessageMarker;
+pub struct RoleMarker;
+pub struct ScheduledEventMarker;
+pub struct SoundboardSoundMarker;
+pub struct StickerMarker;
+pub struct UserMarker;
+pub struct WebhookMarker;
+pub struct SkuMarker;
+
+pub type ApplicationId = Id<ApplicationMarker>;
+pub type AttachmentId = Id<AttachmentMarker>;
+pub type ChannelId = Id<ChannelMarker>;
+pub type EmojiId = Id<EmojiMarker>;
+pub type GuildId = Id<GuildMarker>;
+pub type InteractionId = Id<InteractionMarker>;
+pub type MessageId = Id<MessageMarker>;
+pub type RoleId = Id<RoleMarker>;
+pub type ScheduledEventId = Id<ScheduledEventMarker>;
+pub type SoundboardSoundId = Id<SoundboardSoundMarker>;
+pub type StickerId = Id<StickerMarker>;
+pub type UserId = Id<UserMarker>;
+pub type WebhookId = Id<WebhookMarker>;
+pub type SkuId = Id<SkuMarker>;
