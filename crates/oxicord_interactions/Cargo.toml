@@ -13,7 +13,7 @@ oxicord_api_types.workspace = true
 
 ed25519-dalek = "3.0.0"
 http = "1.5.0"
-thiserror = "2.0.19"
+thiserror.workspace = true
 serde.workspace = true
 serde_json.workspace = true
 hex = "0.4.3"
