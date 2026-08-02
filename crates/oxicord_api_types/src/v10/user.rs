@@ -1,6 +1,5 @@
-use oxicord_macros::{discord_enum, discord_type};
+use oxicord_macros::{discord_bitflags, discord_enum, discord_type};
 use oxicord_snowflake::UserId;
-use serde::{Deserialize, Serialize};
 
 /// A Discord user.
 ///
@@ -36,11 +35,10 @@ pub struct ApiUser {
     pub public_flags: Option<UserFlags>,
 }
 
-bitflags::bitflags! {
+discord_bitflags! {
     /// User account flags.
     ///
     /// <https://discord.com/developers/docs/resources/user#user-object-user-flags>
-    #[derive(Debug, Clone, Copy, PartialEq, Eq, Serialize, Deserialize)]
     pub struct UserFlags: u64 {
         /// Discord Employee
         const STAFF = 1 << 0;
