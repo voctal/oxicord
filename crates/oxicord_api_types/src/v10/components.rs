@@ -1,5 +1,5 @@
-use oxicord_macros::{discord_enum, discord_type};
-use oxicord_snowflake::SkuId;
+use oxicord_macros::{discord_bitflags, discord_enum, discord_type};
+use oxicord_snowflake::{AttachmentId, SkuId};
 
 use crate::v10::emoji::ApiMessageComponentEmoji;
 
@@ -164,4 +164,60 @@ pub struct ApiStringSelectOption {
     pub description: Option<String>,
     pub emoji: Option<ApiMessageComponentEmoji>,
     pub default: bool,
+}
+
+/// <https://discord.com/developers/docs/components/reference#unfurled-media-item-structure>
+#[discord_type]
+pub struct ApiUnfurledMediaItem {
+    /// Supports arbitrary urls and `attachment://<filename>` references.
+    pub url: String,
+    /// The proxied url of the media item.
+    #[serde(default)]
+    pub proxy_url: Option<String>,
+    /// The height of the media item (if image or video).
+    #[serde(default)]
+    pub height: Option<u32>,
+    /// The width of the media item (if image or video).
+    #[serde(default)]
+    pub width: Option<u32>,
+    /// Thumbhash placeholder (if image or video).
+    #[serde(default)]
+    pub placeholder: Option<String>,
+    /// Version of the placeholder (if image or video).
+    #[serde(default)]
+    pub placeholder_version: Option<u32>,
+    /// The media type of the content.
+    #[serde(default)]
+    pub content_type: Option<String>,
+    /// Unfurled media item flags combined as a bitfield.
+    #[serde(default)]
+    pub flags: Option<UnfurledMediaItemFlags>,
+    /// The id of the uploaded attachment.
+    #[serde(default)]
+    pub attachment_id: Option<AttachmentId>,
+}
+
+discord_bitflags!(
+    /// Flags for an unfurled media item.
+    ///
+    /// <https://discord.com/developers/docs/components/reference#unfurled-media-item-structure>
+    pub struct UnfurledMediaItemFlags: u32 {
+        /// This image is animated.
+        const IS_ANIMATED = 1 << 0;
+    }
+);
+
+/// <https://discord.com/developers/docs/components/reference#thumbnail>
+#[discord_type]
+pub struct ApiThumbnailComponent {
+    #[serde(rename = "type")]
+    pub component_type: ComponentType,
+    /// Optional identifier for the component.
+    pub id: Option<i32>,
+    /// The media for the thumbnail.
+    pub media: ApiUnfurledMediaItem,
+    /// Alt text for the media.
+    pub description: Option<String>,
+    /// Whether the thumbnail should be a spoiler (blurred out).
+    pub spoiler: Option<bool>,
 }
