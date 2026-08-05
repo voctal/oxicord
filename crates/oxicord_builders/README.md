@@ -30,7 +30,6 @@ let button = ButtonBuilder::new()
 
 - Embed
 - Section
-- Thumbnail
 - MediaGallery
 - File
 - Label

@@ -55,6 +55,7 @@ pub enum ApiComponent {
     TextDisplay(ApiTextDisplayComponent),
     Separator(ApiSeparatorComponent),
     Container(ApiContainerComponent),
+    Thumbnail(ApiThumbnailComponent),
 }
 
 /// https://discord.com/developers/docs/components/reference#button
