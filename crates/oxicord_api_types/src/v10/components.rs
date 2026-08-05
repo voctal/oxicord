@@ -56,6 +56,7 @@ pub enum ApiComponent {
     Separator(ApiSeparatorComponent),
     Container(ApiContainerComponent),
     Thumbnail(ApiThumbnailComponent),
+    File(ApiFileComponent),
 }
 
 /// https://discord.com/developers/docs/components/reference#button
@@ -221,4 +222,21 @@ pub struct ApiThumbnailComponent {
     pub description: Option<String>,
     /// Whether the thumbnail should be a spoiler (blurred out).
     pub spoiler: Option<bool>,
+}
+
+/// <https://docs.discord.com/developers/components/reference#file>
+#[discord_type]
+pub struct ApiFileComponent {
+    #[serde(rename = "type")]
+    pub component_type: ComponentType,
+    /// Optional identifier for the component.
+    pub id: Option<i32>,
+    /// The file referenced via an `attachment://<filename>` URI.
+    pub file: ApiUnfurledMediaItem,
+    /// Whether the file should be blurred as a spoiler. Defaults to `false`.
+    pub spoiler: Option<bool>,
+    /// The file's name (read-only).
+    pub name: Option<String>,
+    /// The file's size in bytes (read-only).
+    pub size: Option<u32>,
 }
