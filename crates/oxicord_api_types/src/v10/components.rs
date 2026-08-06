@@ -57,6 +57,7 @@ pub enum ApiComponent {
     Container(ApiContainerComponent),
     Thumbnail(ApiThumbnailComponent),
     File(ApiFileComponent),
+    Checkbox(ApiCheckboxComponent),
 }
 
 /// https://discord.com/developers/docs/components/reference#button
@@ -239,4 +240,17 @@ pub struct ApiFileComponent {
     pub name: Option<String>,
     /// The file's size in bytes (read-only).
     pub size: Option<u32>,
+}
+
+/// <https://docs.discord.com/developers/components/reference#checkbox>
+#[discord_type]
+pub struct ApiCheckboxComponent {
+    #[serde(rename = "type")]
+    pub component_type: ComponentType,
+    /// Optional identifier for the component.
+    pub id: Option<i32>,
+    /// The developer-defined identifier for the input, max 100 characters.
+    pub custom_id: String,
+    /// Whether the checkbox should be checked by default.
+    pub default: Option<bool>,
 }
