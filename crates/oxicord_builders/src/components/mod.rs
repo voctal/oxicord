@@ -1,5 +1,6 @@
 mod action_row;
 mod button;
+mod checkbox;
 mod container;
 mod file;
 mod separator;
@@ -9,6 +10,7 @@ mod thumbnail;
 
 pub use action_row::*;
 pub use button::*;
+pub use checkbox::*;
 pub use container::*;
 pub use file::*;
 pub use separator::*;
