@@ -38,4 +38,3 @@ let button = ButtonBuilder::new()
 - MentionableSelect
 - ChannelSelect
 - RadioGroup
-- CheckboxGroup
