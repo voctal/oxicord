@@ -48,4 +48,5 @@ Later:
 - rustls
 - `features`
 - MSRV 1.96?
+- WASM
 - ratelimits (error/waiting configurable by endpoint)
