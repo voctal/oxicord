@@ -36,4 +36,3 @@ let button = ButtonBuilder::new()
 - RoleSelect
 - MentionableSelect
 - ChannelSelect
-- RadioGroup
