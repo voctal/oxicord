@@ -31,7 +31,6 @@ let button = ButtonBuilder::new()
 - Embed
 - Section
 - MediaGallery
-- Label
 - FileUpload
 - UserSelect
 - RoleSelect

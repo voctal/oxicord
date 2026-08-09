@@ -59,6 +59,7 @@ pub enum ApiComponent {
     File(ApiFileComponent),
     Checkbox(ApiCheckboxComponent),
     CheckboxGroup(ApiCheckboxGroupComponent),
+    Label(ApiLabelComponent),
 }
 
 /// https://discord.com/developers/docs/components/reference#button
@@ -286,4 +287,20 @@ pub struct ApiCheckboxGroupOption {
     pub description: Option<String>,
     /// Whether this option is selected by default.
     pub default: Option<bool>,
+}
+
+/// <https://docs.discord.com/developers/components/reference#label>
+#[discord_type]
+pub struct ApiLabelComponent {
+    /// The type of component.
+    #[serde(rename = "type")]
+    pub component_type: ComponentType,
+    /// Optional identifier for the component.
+    pub id: Option<i32>,
+    /// The label text.
+    pub label: String,
+    /// Optional description shown below the label.
+    pub description: Option<String>,
+    /// The wrapped component. See <https://docs.discord.com/developers/components/reference#label-label-child-components> for valid types.
+    pub component: Box<ApiComponent>,
 }
