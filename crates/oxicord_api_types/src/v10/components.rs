@@ -59,6 +59,7 @@ pub enum ApiComponent {
     File(ApiFileComponent),
     Checkbox(ApiCheckboxComponent),
     CheckboxGroup(ApiCheckboxGroupComponent),
+    RadioGroup(ApiRadioGroupComponent),
     Label(ApiLabelComponent),
 }
 
@@ -153,6 +154,7 @@ pub struct ApiStringSelectComponent {
     #[serde(rename = "type")]
     pub component_type: ComponentType,
     pub id: Option<i32>,
+    /// Custom identifier for the select menu, max 100 characters.
     pub custom_id: String,
     pub options: Vec<ApiStringSelectOption>,
     pub placeholder: Option<String>,
@@ -251,7 +253,7 @@ pub struct ApiCheckboxComponent {
     pub component_type: ComponentType,
     /// Optional identifier for the component.
     pub id: Option<i32>,
-    /// The developer-defined identifier for the input, max 100 characters.
+    /// Custom identifier for the input, max 100 characters.
     pub custom_id: String,
     /// Whether the checkbox should be checked by default.
     pub default: Option<bool>,
@@ -264,7 +266,7 @@ pub struct ApiCheckboxGroupComponent {
     pub component_type: ComponentType,
     /// Optional identifier for the component.
     pub id: Option<i32>,
-    /// Custom identifier for the input, between 1 and 100 characters.
+    /// Custom identifier for the input, max 100 characters.
     pub custom_id: String,
     /// List of options to display, between 1 and 10.
     pub options: Vec<ApiCheckboxGroupOption>,
@@ -284,6 +286,34 @@ pub struct ApiCheckboxGroupOption {
     /// Label displayed to the user, up to 100 characters.
     pub label: String,
     /// Optional description shown alongside the option, up to 100 characters.
+    pub description: Option<String>,
+    /// Whether this option is selected by default.
+    pub default: Option<bool>,
+}
+
+/// <https://docs.discord.com/developers/components/reference#radio-group>
+#[discord_type]
+pub struct ApiRadioGroupComponent {
+    #[serde(rename = "type")]
+    pub component_type: ComponentType,
+    /// Optional id for the component.
+    pub id: Option<i32>,
+    /// Custom identifier for the input, max 100 characters.
+    pub custom_id: String,
+    /// List of options to display, between 2 and 10.
+    pub options: Vec<ApiRadioGroupOption>,
+    /// Whether a selection is required.
+    pub required: Option<bool>,
+}
+
+/// <https://docs.discord.com/developers/components/reference#radio-group-option-structure>
+#[discord_type]
+pub struct ApiRadioGroupOption {
+    /// Dev-defined value tied to this option, max 100 characters.
+    pub value: String,
+    /// Label displayed to the user, max 100 characters.
+    pub label: String,
+    /// Optional description shown alongside the option, max 100 characters.
     pub description: Option<String>,
     /// Whether this option is selected by default.
     pub default: Option<bool>,
