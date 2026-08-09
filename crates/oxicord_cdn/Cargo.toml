@@ -9,3 +9,5 @@ description.workspace = true
 edition.workspace = true
 
 [dependencies]
+oxicord_snowflake.workspace = true
+url.workspace = true

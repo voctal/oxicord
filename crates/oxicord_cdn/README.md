@@ -10,3 +10,16 @@
 ## oxicord_cdn
 
 Discord CDN utilities.
+
+See <https://docs.discord.com/developers/reference#image-formatting-cdn-endpoints>
+
+The crate contains:
+
+- A `Cdn` struct with link builders
+- A `calculate_user_default_avatar_index` utility
+- Constants (cdn url, allowed images extensions, etc.)
+
+## TODO
+
+- Make a CdnRoutes static builders struct in api_types
+- Add a `StickerPackApplicationId = 710982414301790216` constant in api_types, and import it here
