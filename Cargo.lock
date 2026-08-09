@@ -506,6 +506,10 @@ dependencies = [
 ]
 
 [[package]]
+name = "oxicord_cdn"
+version = "0.1.0"
+
+[[package]]
 name = "oxicord_formatters"
 version = "0.1.0"
 
