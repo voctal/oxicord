@@ -57,6 +57,7 @@ pub enum ApiComponent {
     Container(ApiContainerComponent),
     Thumbnail(ApiThumbnailComponent),
     File(ApiFileComponent),
+    FileUpload(ApiFileUploadComponent),
     Checkbox(ApiCheckboxComponent),
     CheckboxGroup(ApiCheckboxGroupComponent),
     RadioGroup(ApiRadioGroupComponent),
@@ -246,6 +247,25 @@ pub struct ApiFileComponent {
     pub size: Option<u32>,
 }
 
+/// <https://docs.discord.com/developers/components/reference#file-upload>
+#[discord_type]
+pub struct ApiFileUploadComponent {
+    #[serde(rename = "type")]
+    pub component_type: ComponentType,
+    /// Optional identifier for the component.
+    pub id: Option<i32>,
+    /// Custom identifier for the file upload, max 100 characters.
+    pub custom_id: String,
+    /// Minimum number of items that must be uploaded (defaults to 1); min 0, max 10
+    pub min_values: Option<u8>,
+    /// Maximum number of items that can be uploaded (defaults to 1); max 10
+    pub max_values: Option<u8>,
+    /// Whether at least one file is needed to submit the modal (defaults to `true`).
+    pub required: Option<bool>,
+    /// Restricts which files can be picked. See <https://docs.discord.com/developers/reference#file-type-filtering> for valid types.
+    pub file_types: Option<Vec<String>>,
+}
+
 /// <https://docs.discord.com/developers/components/reference#checkbox>
 #[discord_type]
 pub struct ApiCheckboxComponent {
@@ -253,7 +273,7 @@ pub struct ApiCheckboxComponent {
     pub component_type: ComponentType,
     /// Optional identifier for the component.
     pub id: Option<i32>,
-    /// Custom identifier for the input, max 100 characters.
+    /// Custom identifier for the checkbox, max 100 characters.
     pub custom_id: String,
     /// Whether the checkbox should be checked by default.
     pub default: Option<bool>,
@@ -266,7 +286,7 @@ pub struct ApiCheckboxGroupComponent {
     pub component_type: ComponentType,
     /// Optional identifier for the component.
     pub id: Option<i32>,
-    /// Custom identifier for the input, max 100 characters.
+    /// Custom identifier for the checkbox group, max 100 characters.
     pub custom_id: String,
     /// List of options to display, between 1 and 10.
     pub options: Vec<ApiCheckboxGroupOption>,
@@ -298,7 +318,7 @@ pub struct ApiRadioGroupComponent {
     pub component_type: ComponentType,
     /// Optional id for the component.
     pub id: Option<i32>,
-    /// Custom identifier for the input, max 100 characters.
+    /// Custom identifier for the radio group, max 100 characters.
     pub custom_id: String,
     /// List of options to display, between 2 and 10.
     pub options: Vec<ApiRadioGroupOption>,
