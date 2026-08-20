@@ -30,7 +30,6 @@ let button = ButtonBuilder::new()
 
 - Embed
 - Section
-- MediaGallery
 - UserSelect
 - RoleSelect
 - MentionableSelect
