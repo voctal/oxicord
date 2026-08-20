@@ -174,7 +174,7 @@ pub struct ApiStringSelectOption {
     pub default: bool,
 }
 
-/// <https://discord.com/developers/docs/components/reference#unfurled-media-item-structure>
+/// <https://discord.com/developers/docs/components/reference#unfurled-media-item>
 #[discord_type]
 pub struct ApiUnfurledMediaItem {
     /// Supports arbitrary urls and `attachment://<filename>` references.
@@ -208,7 +208,7 @@ pub struct ApiUnfurledMediaItem {
 discord_bitflags!(
     /// Flags for an unfurled media item.
     ///
-    /// <https://discord.com/developers/docs/components/reference#unfurled-media-item-structure>
+    /// <https://docs.discord.com/developers/components/reference#unfurled-media-item-unfurled-media-item-flags>
     pub struct UnfurledMediaItemFlags: u32 {
         /// This image is animated.
         const IS_ANIMATED = 1 << 0;
@@ -222,6 +222,28 @@ pub struct ApiThumbnailComponent {
     pub component_type: ComponentType,
     /// Optional identifier for the component.
     pub id: Option<i32>,
+    /// The media for the thumbnail.
+    pub media: ApiUnfurledMediaItem,
+    /// Alt text for the media.
+    pub description: Option<String>,
+    /// Whether the thumbnail should be a spoiler (blurred out).
+    pub spoiler: Option<bool>,
+}
+
+/// <https://docs.discord.com/developers/components/reference#media-gallery>
+#[discord_type]
+pub struct ApiMediaGalleryComponent {
+    #[serde(rename = "type")]
+    pub component_type: ComponentType,
+    /// Optional identifier for the component.
+    pub id: Option<i32>,
+    /// Items shown in the media gallery, up to 10.
+    pub items: Vec<ApiMediaGalleryItem>,
+}
+
+///  <https://docs.discord.com/developers/components/reference#media-gallery-media-gallery-item-structure>
+#[discord_type]
+pub struct ApiMediaGalleryItem {
     /// The media for the thumbnail.
     pub media: ApiUnfurledMediaItem,
     /// Alt text for the media.
