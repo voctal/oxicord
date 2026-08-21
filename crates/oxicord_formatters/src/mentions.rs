@@ -67,6 +67,13 @@ pub fn format_emoji(name: &str, id: u64, animated: bool) -> String {
     }
 }
 
+/// Formats a game mention `<@$game_id>`.
+///
+/// Undocumented by Discord as of writing.
+pub fn game_mention(game_id: u64) -> String {
+    format!("<@${game_id}>")
+}
+
 #[cfg(test)]
 mod tests {
     use super::*;
@@ -85,5 +92,6 @@ mod tests {
             slash_subcommand_group_mention("name", "group", "sub", 123),
             "</name group sub:123>"
         );
+        assert_eq!(game_mention(123), "<@$123>");
     }
 }
