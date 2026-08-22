@@ -11,6 +11,7 @@ mod radio_group;
 mod separator;
 mod string_select;
 mod text_display;
+mod text_input;
 mod thumbnail;
 
 pub use action_row::*;
@@ -26,4 +27,5 @@ pub use radio_group::*;
 pub use separator::*;
 pub use string_select::*;
 pub use text_display::*;
+pub use text_input::*;
 pub use thumbnail::*;
