@@ -140,6 +140,37 @@ pub struct ApiStringSelectOption {
     pub default: bool,
 }
 
+/// <https://discord.com/developers/docs/components/reference#text-input>
+#[discord_type]
+pub struct ApiTextInputComponent {
+    #[serde(rename = "type")]
+    pub component_type: ComponentType,
+    /// Optional identifier for the component.
+    pub id: Option<i32>,
+    /// Custom identifier for the text input, max 100 characters.
+    pub custom_id: String,
+    /// The text input style.
+    pub style: TextInputStyle,
+    /// Minimum input length, min 0, max 4000.
+    pub min_length: Option<u16>,
+    /// Maximum input length, min 1, max 4000.
+    pub max_length: Option<u16>,
+    /// Whether this component must be filled (defaults to `true`).
+    pub required: Option<bool>,
+    /// Pre-filled value for this component, max 4000 characters.
+    pub value: Option<String>,
+    /// Custom placeholder text if the input is empty, max 100 characters.
+    pub placeholder: Option<String>,
+}
+
+#[discord_enum(u8)]
+pub enum TextInputStyle {
+    /// Single-line input
+    Short = 1,
+    /// Multi-line input
+    Paragraph = 2,
+}
+
 /// <https://discord.com/developers/docs/components/reference#text-display>
 #[discord_type]
 pub struct ApiTextDisplayComponent {
