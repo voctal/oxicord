@@ -4,9 +4,10 @@ use serde::{Deserialize, Deserializer, Serialize, Serializer, de::Error as _};
 
 use crate::{extract_timestamp, timestamp_to_snowflake};
 
-/// A Discord Snowflake ID.
+/// A Discord Snowflake ID. See <https://docs.discord.com/developers/reference#snowflakes>.
 ///
-/// This is a simple (zero-cost) wrapper around u64.
+/// This struct is just a (zero-cost) wrapper around u64, see the crate's README.md for more explanation.
+/// It will also serialize into strings, and deserialize from either a string or a number.
 #[repr(transparent)]
 pub struct Id<T> {
     value: u64,
