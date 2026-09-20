@@ -647,6 +647,14 @@ name = "oxicord_formatters"
 version = "0.1.0"
 
 [[package]]
+name = "oxicord_gateway"
+version = "0.1.0"
+dependencies = [
+ "serde",
+ "serde_json",
+]
+
+[[package]]
 name = "oxicord_interactions"
 version = "0.1.0"
 dependencies = [
