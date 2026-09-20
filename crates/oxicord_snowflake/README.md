@@ -53,3 +53,9 @@ The crate also exports utilities to:
 - extract the timestamp of a snowflake (if you already
   have the `Id` instance, you can call `.timestamp()` instead)
 - create a snowflake from a timestamp, e.g. for pagination query params
+
+## Games
+
+The currently undocumented formatting `<@$id>` let you "mention" a game.
+The ID, however, seems to sometimes be a user ID, and sometimes not a user ID.
+So, for now, there is no `GameId` type in this crate.

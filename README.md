@@ -26,6 +26,7 @@ The REST API v10+ and the gateway will be supported, but not the voice API (at l
 - `oxicord_cache` - Cache implementations (in-memory, Redis...)
 - `oxicord_core` - Core library (e.g. for HTTP-only bots)
 - `oxicord_rest` - REST http for the API
+- `oxicord_cdn` - CDN utils
 - `oxicord_formatters` - Formatting utilities for messages
 - `oxicord_patterns` - Discord regexes
 - `oxicord_snowflake` - Snowflake implementation and utilities
@@ -47,4 +48,5 @@ Later:
 - rustls
 - `features`
 - MSRV 1.96?
+- WASM
 - ratelimits (error/waiting configurable by endpoint)

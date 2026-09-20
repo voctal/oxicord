@@ -10,6 +10,29 @@
 ## oxicord_rest
 
 Library to interact with Discord REST API and CDN.
+Uses [hyper](https://crates.io/crates/hyper) under the hood.
+
+See `oxicord_cdn` for the CDN types and constants.
+
+## Features
+
+- [ ] Ratelimits
+    - [ ] Global / Buckets
+    - [ ] Sublimits
+    - [ ] In-memory ratelimiter
+    - [ ] Redis ratelimiter
+- [ ] Concurrency
+- [ ] Events
+- [ ] Files
+- [ ] SIMD
+
+## How does it work (TODO)
+
+- explain global = 50req/s or more
+- explain "bucket" (and the hashing)
+- explain burst vs sequential
+- explain sublimits and how to register them and why
+- explain that you need execute_webhook to prevent sequential from running
 
 ## TODO
 
@@ -17,3 +40,5 @@ Library to interact with Discord REST API and CDN.
 - Ratelimiter
 - A LOT of tests
 - Sequential / Burst
+- simd
+- async redis ratelimiter
