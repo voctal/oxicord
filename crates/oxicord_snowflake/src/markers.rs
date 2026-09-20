@@ -17,6 +17,7 @@ pub struct WebhookMarker;
 pub struct SkuMarker;
 pub struct AchievementMarker;
 pub struct TeamMarker;
+pub struct AnyMarker;
 
 pub type ApplicationId = Id<ApplicationMarker>;
 pub type AttachmentId = Id<AttachmentMarker>;
@@ -35,3 +36,4 @@ pub type WebhookId = Id<WebhookMarker>;
 pub type SkuId = Id<SkuMarker>;
 pub type AchievementId = Id<AchievementMarker>;
 pub type TeamId = Id<TeamMarker>;
+pub type AnyId = Id<AnyMarker>;
