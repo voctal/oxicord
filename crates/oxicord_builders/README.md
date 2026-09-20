@@ -32,5 +32,4 @@ let button = ButtonBuilder::new()
 - Section
 - UserSelect
 - RoleSelect
-- MentionableSelect
 - ChannelSelect

@@ -1,5 +1,5 @@
 use oxicord_macros::{discord_bitflags, discord_enum, discord_type};
-use oxicord_snowflake::{AttachmentId, SkuId};
+use oxicord_snowflake::{AttachmentId, Id, SkuId};
 
 use crate::v10::emoji::ApiMessageComponentEmoji;
 
@@ -169,6 +169,39 @@ pub enum TextInputStyle {
     Short = 1,
     /// Multi-line input
     Paragraph = 2,
+}
+
+/// <https://docs.discord.com/developers/components/reference#user-select-select-default-value-structure>
+#[discord_type]
+pub struct ApiSelectDefaultValue {
+    /// ID of a user, role, or channel.
+    pub id: Id<()>,
+    /// Type of value that id represents. Either "user", "role", or "channel".
+    #[serde(rename = "type")]
+    pub value_type: String,
+}
+
+/// <https://docs.discord.com/developers/components/reference#mentionable-select>
+#[discord_type]
+pub struct ApiMentionableSelectComponent {
+    #[serde(rename = "type")]
+    pub component_type: ComponentType,
+    /// Optional identifier for the component.
+    pub id: Option<i32>,
+    /// Custom identifier for the text input, max 100 characters.
+    pub custom_id: String,
+    /// Placeholder text displayed when no option is selected, max 150 characters.
+    pub placeholder: Option<String>,
+    /// Default values shown when the menu loads; count must respect `min_values`/`max_values`.
+    pub default_values: Option<Vec<ApiSelectDefaultValue>>,
+    /// Minimum number of items that can be chosen (defaults to 1); min 0, max 25.
+    pub min_values: Option<u8>,
+    /// Maximum number of items that can be chosen (defaults to 1); max 25.
+    pub max_values: Option<u8>,
+    /// Whether the mentionable select is required to answer in a modal (defaults to `true`).
+    pub required: Option<bool>,
+    /// Whether the select menu is disabled in a message (defaults to `false`).
+    pub disabled: Option<bool>,
 }
 
 /// <https://discord.com/developers/docs/components/reference#text-display>
