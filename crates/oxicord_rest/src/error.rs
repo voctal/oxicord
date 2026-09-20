@@ -3,6 +3,8 @@ use std::sync::Arc;
 use bytes::Bytes;
 use hyper::StatusCode;
 
+use crate::RateLimitData;
+
 /// Errors that can occur while making a request to the Discord API.
 #[derive(Debug, thiserror::Error)]
 pub enum RestError {
@@ -23,6 +25,9 @@ pub enum RestError {
 
     #[error("failed to serialize the request body as JSON: {0}")]
     Serialize(Arc<serde_json::Error>),
+
+    #[error("request was rate limited (route={}, retry_after={}ms)", .0.route, .0.retry_after)]
+    RateLimited(Box<RateLimitData>),
 
     #[error("discord returned an error response ({status}): {}", String::from_utf8_lossy(.body))]
     ApiError { status: StatusCode, body: Bytes },
