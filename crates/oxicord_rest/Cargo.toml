@@ -9,6 +9,7 @@ description.workspace = true
 edition.workspace = true
 
 [dependencies]
+oxicord_cdn.workspace = true
 bytes = "1.12.1"
 dashmap = "6.2.1"
 http-body-util = "0.1.4"
