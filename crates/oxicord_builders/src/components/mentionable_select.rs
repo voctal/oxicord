@@ -1,3 +1,5 @@
+use std::ops::RangeBounds;
+
 use oxicord_api_types::v10::components::{
     ApiMentionableSelectComponent, ApiSelectDefaultValue, ComponentType,
 };
@@ -47,9 +49,24 @@ impl MentionableSelectBuilder {
         self
     }
 
-    /// Sets the `default_values`.
-    pub fn default_values(mut self, default_values: Vec<ApiSelectDefaultValue>) -> Self {
-        self.default_values = Some(default_values);
+    /// Adds a single default value.
+    pub fn add_default_value(mut self, value: ApiSelectDefaultValue) -> Self {
+        self.default_values.get_or_insert_with(Vec::new).push(value);
+        self
+    }
+
+    /// Removes, replaces, or inserts default values in range, like Vec::splice.
+    pub fn splice_default_values<R>(
+        mut self,
+        range: R,
+        replace_with: impl IntoIterator<Item = ApiSelectDefaultValue>,
+    ) -> Self
+    where
+        R: RangeBounds<usize>,
+    {
+        self.default_values
+            .get_or_insert_with(Vec::new)
+            .splice(range, replace_with);
         self
     }
 

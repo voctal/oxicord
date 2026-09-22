@@ -1,5 +1,5 @@
 use oxicord_macros::{discord_bitflags, discord_enum, discord_type};
-use oxicord_snowflake::{AttachmentId, Id, SkuId};
+use oxicord_snowflake::{AnyId, AttachmentId, SkuId};
 
 use crate::v10::emoji::ApiMessageComponentEmoji;
 
@@ -175,7 +175,7 @@ pub enum TextInputStyle {
 #[discord_type]
 pub struct ApiSelectDefaultValue {
     /// ID of a user, role, or channel.
-    pub id: Id<()>,
+    pub id: AnyId,
     /// Type of value that id represents. Either "user", "role", or "channel".
     #[serde(rename = "type")]
     pub value_type: String,
